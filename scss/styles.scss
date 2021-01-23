@@ -1,0 +1,787 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
+@import '_config';
+@import 'utilities';
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: $primary-font;
+    // font-family: 'Merriweather', serif;
+    background-color: $dark-blue-color;
+    background-color: $light-bg;
+    max-height: 100vh;
+    width: 100%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+// himberger menu styles
+.humberger-menu {
+    position: absolute;
+    display: inline-block;
+    top: 2.5rem;
+    right: 2.5rem;
+    color: $primary-font-color;
+    z-index: 10;
+    width: 5rem;
+    display: none;
+    transition: all 0.3s ease-in;
+    span {
+        display: inline-block;
+        height: 5px;
+        width: 5rem;
+        position: relative;
+        background-color: $primary-font-color;
+        transition: all 0.3s ease-in;
+    }
+}
+
+// side-bar styles
+.side-navbar {
+    height: 100vh;
+    width: 25%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $dark-bg;
+    border-right: 3px solid $yellow-color;
+    color: $primary-font-color;
+    .flex {
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    // side-bar logo styles
+    .logo {
+        background-image: url('/assets/images/sunset.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 6rem;
+        width: 100%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        h1 {
+            font-size: 5rem;
+        }
+    }
+    // nav styles
+    nav {
+        margin-top: 4rem;
+        & li {
+            margin: 1.5rem 0;
+            a {
+                font-size: 2rem;
+                color: $gray-color;
+                position: relative;
+                padding: 0.7rem 0;
+                transition: all 0.2s ease-in;
+            }
+            a:hover {
+                color: $yellow-color;
+            }
+            a::after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                height: 2px;
+                width: 0%;
+                background-color: $yellow-color;
+                transition: all 0.2s ease-in;
+            }
+            a:hover::after {
+                left: 0;
+                width: 100%;
+            }
+        }
+    }
+    // form styles
+    form {
+        width: 90%;
+        margin: 2rem auto;
+        label {
+            font-size: 1.8rem;
+            color: darken($light-gray, 60%);
+            font-weight: bold;
+        }
+        input {
+            background-color: transparent;
+            border: 1px solid darken($light-gray, 70%);
+            height: 5rem;
+            width: 100%;
+            margin: 2rem 0;
+            font-size: 1.5rem;
+            text-align: center;
+            box-shadow: 0 1px 1px 1px rgba($light-gray, 0.03);
+        }
+        input:focus {
+            // border: none;
+            outline: none;
+        }
+        button {
+            display: block;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            border: 1px solid darken($light-gray, 70%);
+            color: $gray-color;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease-in;
+        }
+        button:hover {
+            color: darken($yellow-color, 10%);
+            border: 1px solid $yellow-color;
+        }
+        p {
+            margin-top: 2rem;
+            font-size: 1.3rem;
+            color: darken($light-gray, 70%);
+            strong {
+                color: $gray-color;
+            }
+        }
+    }
+}
+
+// main page styles starts here
+.main-page {
+    .showcase {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(6, 100vh);
+        margin-bottom: 0;
+        padding-bottom: 0;
+        // image-section-1
+        .image-section-1 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            background-image: url('/assets/images/blackMan.jpg');
+        }
+        // content-section-1
+        .content-section-1 {
+            grid-column: 2/-1;
+            grid-row: 1/2;
+        }
+    }
+    // showcase-2
+    // image-section-2
+    .image-section-2 {
+        background-image: url('/assets/images/greenleaf.jpg');
+        background-blend-mode: overlay;
+        background-color: lighten($dark-bg, 20%);
+        grid-column: 2/-1;
+        grid-row: 2/3;
+    }
+}
+
+// content-section-2
+.content-section-2 {
+    background-color: $dark-bg;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    text-align: right;
+}
+
+// showcase-3
+// image-section-3
+.image-section-3 {
+    background-image: url('/assets/images/coal.jpg');
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+// content-section-3
+.content-section-3 {
+    grid-column: 2/-1;
+    grid-row: 3/4;
+}
+
+// showcase-4
+.content-section-4 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+    text-align: right;
+}
+
+.image-section-4 {
+    background-image: url('/assets/images/darkleaf.jpg');
+    grid-column: 2/-1;
+    grid-row: 4/5;
+}
+
+// section-5
+.image-section-5 {
+    background-image: url('/assets/images/building.jpg');
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+.content-section-5 {
+    grid-column: 2/-1;
+    grid-row: 5/6;
+}
+
+// section-6
+.content-section-6 {
+    grid-column: 1/2;
+    grid-row: 6/7;
+    text-align: right;
+}
+
+.image-section-6 {
+    background-image: url('/assets/images/blackgirl.jpg');
+    grid-column: 2/-1;
+    grid-row: 6/7;
+}
+
+// the styles of home page ends right here ---------------------------------------
+// the styles of contact page starts from here ----------------------------------
+.main-contact {
+    min-height: 100vh;
+    .grid-2 {
+        grid-template-columns: 2fr 4fr;
+        height: 100%;
+        .contact-description {
+            grid-column: 1/2;
+            background-color: $yellow-color;
+            height: 100vh;
+            .container {
+                padding: 7rem 1.5rem;
+                h1 {
+                    font-size: 2.5rem;
+                    margin-bottom: 1.5rem;
+                }
+                p {
+                    font-size: 1.5rem;
+                    margin-bottom: 2rem;
+                }
+                .contact-form-boxes {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    margin: 3.5rem 0;
+                    div:first-child {
+                        width: 20%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        i {
+                            font-size: 1.5rem;
+                            display: inline-block;
+                            border-radius: 100%;
+                            padding: 16px;
+                            border: 1px solid rgba(#313131, 0.2);
+                        }
+                    }
+                    div:nth-child(2) {
+                        width: 80%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        p {
+                            font-size: 1.2rem;
+                            width: 100%;
+                            align-self: center;
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+        .contact-form {
+            grid-column: 2/-1;
+            background-color: $dark-bg;
+            color: $primary-font-color;
+            .container {
+                padding: 7rem 1.5rem;
+                h1 {
+                    font-size: 3rem;
+                    font-weight: bolder;
+                }
+                form {
+                    width: 100%;
+                    height: 100%;
+                    margin-top: 3rem;
+                    label {
+                        font-size: 1.3rem;
+                        margin-bottom: 1rem;
+                        color: rgba(#eee, 0.5);
+                    }
+                    div {
+                        display: flex;
+                    }
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        border-bottom: 1px solid rgba(#eee, 0.1);
+                    }
+                    input::placeholder {
+                        font-size: 1.2rem;
+                        color: rgba(#eee, 0.3);
+                    }
+                    input:-ms-keyboard-active {
+                        color: $primary-font-color;
+                    }
+                    .form-name-email {
+                        flex: 1;
+                        width: 100%;
+                        margin: 2rem 0;
+                        input {
+                            width: 100%;
+                            height: 5rem;
+                        }
+                        .name {
+                            display: flex;
+                            flex-direction: column;
+                            width: 50%;
+                            margin-right: 5rem;
+                        }
+                        .email {
+                            display: flex;
+                            flex-direction: column;
+                            width: 50%;
+                        }
+                    }
+                    .subject {
+                        width: 100%;
+                        flex-direction: column;
+                        margin: 1rem 0;
+                        input {
+                            width: 100%;
+                            height: 5rem;
+                        }
+                    }
+                    .message {
+                        width: 100%;
+                        flex-direction: column;
+                        margin: 2rem 0;
+                        input {
+                            width: 100%;
+                            height: 10rem;
+                        }
+                    }
+                    button {
+                        background-color: $yellow-color;
+                        padding: 1rem 3rem;
+                        border-radius: 25px;
+                        color: $dark-bg;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        border: 1px solid $yellow-color;
+                        outline: none;
+                        margin-top: 3rem;
+                        display: inline-block;
+                        transition: border 0.5s ease-in;
+                        cursor: pointer;
+                        transform-origin: left;
+                    }
+                    button:hover {
+                        background-color: transparent;
+                        border: 1px solid $yellow-color;
+                        color: $yellow-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// this is the end of contact section styles -----------------------------------
+// this is the end of pricing section styles -----------------------------------
+.pricing-main {
+    min-height: 100vh;
+    width: 75%;
+    margin-left: 25%;
+    overflow: hidden;
+    .grid-4 {
+        height: 100vh;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .container {
+            background-color: transparent;
+            padding: 5rem 2rem;
+            color: $primary-font-color;
+            div {
+                margin: 2rem 0;
+                background-color: transparent;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h5 {
+                font-size: 1.5rem;
+                color: rgba(#eee, 0.5);
+                margin-bottom: 0.5rem;
+            }
+            p {
+                font-size: 1.2rem;
+            }
+        }
+        div {
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-blend-mode: overlay;
+            background-color: #313131;
+        }
+        .model {
+            grid-column: 1/2;
+            background-image: url('/assets/images/blackMan.jpg');
+        }
+        .events {
+            grid-column: 2/3;
+            background-image: url('/assets/images/greenleaf.jpg');
+        }
+        .corporate {
+            grid-column: 3/4;
+            background-image: url('/assets/images/coal.jpg');
+        }
+        .movies {
+            grid-column: 4/-1;
+            background-image: url('/assets/images/darkleaf.jpg');
+        }
+    }
+}
+
+// styles of pricing page ends here ------------------------------
+// styles of about page starts here -------------------------------
+.about-main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    max-height: 100vh;
+    .about-image-section {
+        grid-column: 1/2;
+        height: 100%;
+        background-image: url('/assets/images/blackMan.jpg');
+    }
+    .about-biography-section {
+        grid-column: 2/-1;
+        height: 100%;
+        background-color: $dark-bg;
+        color: $gray-color;
+        .container {
+            padding: 5rem 2rem;
+            h1 {
+                font-size: 3.5rem;
+                color: $primary-font-color;
+                span {
+                    color: $yellow-color;
+                }
+            }
+            p {
+                margin: 1.5rem 0;
+                font-size: 1.5rem;
+            }
+            .about-bio-boxes {
+                width: 100%;
+                display: flex;
+                flex: 1;
+                margin: 3rem 0 0 0;
+                .about-bio-box {
+                    margin: 0 1rem;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 15rem;
+                    img {
+                        display: block;
+                        height: 10rem;
+                        width: 10rem;
+                        border-radius: 100%;
+                        cursor: pointer;
+                    }
+                    img:hover {
+                        background-size: 120%;
+                    }
+                    h3 {
+                        margin: 1rem 0 0 0;
+                        font-size: 1.5rem;
+                        color: $primary-font-color;
+                    }
+                    p {
+                        font-size: 1rem;
+                        text-align: center;
+                        margin: 0.5rem 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// about section styles ends here --------------------------------
+// projects section styles starts here -----------------------------
+.main-projects {
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 100vh);
+        .image-section {
+            background-color: #313131;
+            background-blend-mode: overlay;
+            transition: all 2s ease-in-out;
+            .container {
+                padding: 20rem 3rem;
+                display: none;
+                opacity: 0;
+                transition: all 2s ease-in-out;
+                p {
+                    font-size: 1.5rem;
+                    color: $gray-color;
+                    margin: 0 1rem 0 0;
+                }
+                h1 {
+                    font-size: 3rem;
+                    color: $primary-font-color;
+                }
+            }
+        }
+        .image-section:hover .container {
+            display: block;
+            opacity: 1;
+            transition: all 2s ease-in-out;
+        }
+        .project-image-section-1 {
+            grid-column: 1/2;
+            grid-row: 1/2;
+            background-image: url('/assets/images/blackMan.jpg');
+        }
+        .project-image-section-2 {
+            grid-column: 2/3;
+            grid-row: 1/2;
+            background-image: url('/assets/images/greenleaf.jpg');
+        }
+        .project-image-section-3 {
+            grid-column: 3/-1;
+            grid-row: 1/2;
+            background-image: url('/assets/images/coal.jpg');
+        }
+        .project-image-section-4 {
+            grid-column: 1/2;
+            grid-row: 2/3;
+            background-image: url('/assets/images/darkleaf.jpg');
+        }
+        .project-image-section-5 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+            background-image: url('/assets/images/building.jpg');
+        }
+        .project-image-section-6 {
+            grid-column: 3/-1;
+            grid-row: 2/3;
+            background-image: url('/assets/images/blackgirl.jpg');
+        }
+        .project-image-section-7 {
+            grid-column: 1/2;
+            grid-row: 3/4;
+            background-image: url('/assets/images/coal.jpg');
+        }
+        .project-image-section-8 {
+            grid-column: 2/3;
+            grid-row: 3/4;
+            background-image: url('/assets/images/greenleaf.jpg');
+        }
+        .project-image-section-9 {
+            grid-column: 3/-1;
+            grid-row: 3/4;
+            background-image: url('/assets/images/darkleaf.jpg');
+        }
+    }
+}
+
+// media queriy
+@media screen and (max-width: 768px) {
+    .humberger-menu {
+        display: block;
+        position: fixed;
+    }
+    .line-change .line-1 {
+        transform: translateY(320%) rotateZ(45deg);
+    }
+    .line-change .line-2 {
+        transform: translateX(-10rem);
+        opacity: 0;
+        transition: all 0.1s ease-in;
+    }
+    .line-change .line-3 {
+        transform: translateY(-320%) rotateZ(-45deg);
+    }
+    // closing
+    .line-close .line-1 {
+        transform: translateX(0%) translateY(0%) rotateZ(0deg);
+    }
+    .line-close .line-2 {
+        transform: translateX(0rem);
+        opacity: 1;
+        transition: all 0.1s ease-in;
+    }
+    .line-close .line-3 {
+        transform: translateX(0%) translateY(0%) rotateZ(0deg);
+    }
+    // side-bar
+    .side-navbar {
+        width: 100%;
+        transform: translateX(-100%);
+        transition: all 0.3s linear;
+    }
+    .open {
+        transform: translateX(0%);
+    }
+    .close {
+        transform: translateX(-30%);
+    }
+    // main-page
+    .main-page {
+        width: 100%;
+        margin-left: 0%;
+        .showcase {
+            width: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(6, 100vh minmax(50vh, 55vh));
+            .image-section-1 {
+                grid-column: 1/-1;
+                grid-row: 1/2;
+            }
+            .content-section-1 {
+                grid-column: 1/-1;
+                grid-row: 2/3;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+            .image-section-2 {
+                grid-column: 1/-1;
+                grid-row: 3/4;
+            }
+            .content-section-2 {
+                grid-column: 1/-1;
+                grid-row: 4/5;
+                text-align: left;
+                max-height: 55vh;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+            .image-section-3 {
+                grid-column: 1/-1;
+                grid-row: 5/6;
+            }
+            .content-section-3 {
+                grid-column: 1/-1;
+                grid-row: 6/7;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+            .image-section-4 {
+                grid-column: 1/-1;
+                grid-row: 7/8;
+            }
+            .content-section-4 {
+                grid-column: 1/-1;
+                grid-row: 8/9;
+                text-align: left;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+            .image-section-5 {
+                grid-column: 1/-1;
+                grid-row: 9/10;
+            }
+            .content-section-5 {
+                grid-column: 1/-1;
+                grid-row: 10/11;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+            .image-section-6 {
+                grid-column: 1/-1;
+                grid-row: 11/12;
+            }
+            .content-section-6 {
+                grid-column: 1/-1;
+                grid-row: 12/13;
+                text-align: left;
+                max-height: 55vh;
+                .container {
+                    padding: 3rem 2rem;
+                }
+            }
+        }
+    }
+    .main-contact {
+        .grid-2 {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            .contact-description {
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+            .contact-form {
+                grid-column: 1/2;
+                grid-row: 2/-1;
+            }
+        }
+    }
+    // pricing page
+    .pricing-main {
+        min-height: 100vh;
+        .grid-4 {
+            height: 100%;
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(4, 100vh);
+            .model {
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+            .events {
+                grid-column: 1/2;
+                grid-row: 2/3;
+            }
+            .corporate {
+                grid-column: 1/2;
+                grid-row: 3/4;
+            }
+            .movies {
+                grid-column: 1/2;
+                grid-row: 4/-1;
+            }
+        }
+    }
+    // about page
+    .about-main {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 100vh);
+        .about-image-section {
+            grid-column: 1/2;
+            grid-row: 1/2;
+        }
+        .about-biography-section {
+            grid-column: 1/2;
+            grid-row: 2/-1;
+        }
+    }
+}
+
+// media queries at 480px--------------
